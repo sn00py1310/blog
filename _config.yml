@@ -38,6 +38,9 @@ google_analytics: G-KKWDB68V2E
 permalink: /:year/:month/:day/:title/
 theme: minima
 
+# header_pages:
+#   - about.md
+
 plugins:
   - jekyll-seo-tag
   - jekyll-feed
