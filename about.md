@@ -27,4 +27,4 @@ I worked with different programming languages and had different skill levels.
 - C#
 
 # Blog
-I hope you find on this interesting. It's going to be about IT security, personal projects and some private stories.  
+I hope you find this interesting. It's going to be about IT security, personal projects and some private stories.  
