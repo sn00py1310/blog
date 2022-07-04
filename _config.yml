@@ -24,7 +24,7 @@ description: >-
   This is my very own blog, but probably I'm the only one reading this. 
   Oh, hey nice to see you :)
 baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://sn00py1310.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 author: sn00py1310
 
 # Socials
