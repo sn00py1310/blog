@@ -1,0 +1,28 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+html {
+    scroll-behavior: smooth;
+}
+.back-to-top-link {
+    $back-to-top-size: 3rem;
+
+    z-index: 1100;
+    position: fixed;
+    bottom: 3vh;
+    right: 0.5rem;
+    width: $back-to-top-size * 1.1;
+    height: $back-to-top-size * 1.1;
+    transition: ease-in-out 0.2s;
+    border-radius: 50%;
+    fill: $brand-color;
+    &:visited {
+        fill: $brand-color;
+    }
+    &:hover, &:focus {
+        fill: $text-color;
+    }
+    &-moved:not(:focus-within){
+        bottom: -$back-to-top-size * 1.1;
+    }
+}

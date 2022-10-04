@@ -1,0 +1,28 @@
+title: sn00py1310's Blog
+description: >-  
+  This is my very own blog, but probably I'm the only one reading this. 
+  Oh, hey nice to see you :)
+author:
+  name: sn00py1310
+
+# Statistics
+google_analytics: G-KKWDB68V2E
+
+remote_theme: jekyll/minima
+minima:
+  skin: auto
+  social_links:
+    github: sn00py1310
+
+sass:
+  style: compressed
+
+# Build Settings
+favicon: favicon.ico
+permalink: /:year/:month/:day/:title
+timezone: Etc/UTC
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap

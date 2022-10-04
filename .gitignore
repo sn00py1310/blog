@@ -1,0 +1,10 @@
+# General
+.*
+*.lock
+!.gitignore
+
+# Jekyll
+_site/
+
+# Bundler/Composer
+vendor/
