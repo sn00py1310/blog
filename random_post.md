@@ -10,7 +10,7 @@ published: true
             "{{ post.url | relative_url }}",
         {%- endfor -%}];
         let post = allPosts[Math.floor(Math.random() * allPosts.length)];
-        let postLink = post ? `${post}` : `{% link index.md %}`;
+        let postLink = post ? `${post}` : `{{ '/' | relative_url }}`;
         return postLink;
     }
     location.replace(linkToRandomBlogPost())
