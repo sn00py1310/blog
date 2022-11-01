@@ -1,5 +1,19 @@
 <!-- Begin libs -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{%- if page.usemathjax -%}
+    {%- if page.usemathjax.configs -%}
+        {{page.usemathjax.configs}}
+    {%- else -%}
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$']]
+              }
+            };
+        </script>
+    {%- endif -%}
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{%- endif -%}
 <!-- End libs -->
 {%- if site.favicon -%}<link rel="icon" href="{{ site.favicon | relative_url }}">{%- endif -%}
 <script src="{% link /assets/js/main.js %}"></script>
