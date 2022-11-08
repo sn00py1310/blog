@@ -6,10 +6,7 @@ author:
   name: sn00py1310
 
 collections_dir: collections
-collections:
-  posts:
-    output: true
-    permalink: /:year/:month/:day/:title
+permalink: /:collection/:year/:month/:day/:title
 
 # Statistics
 google_analytics: G-KKWDB68V2E
