@@ -8,6 +8,10 @@ author:
 collections_dir: collections
 permalink: /:collection/:year/:month/:day/:title
 
+header_pages:
+  - about.md
+  - index.md
+
 # Statistics
 google_analytics: G-KKWDB68V2E
 

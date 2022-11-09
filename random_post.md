@@ -1,18 +1,12 @@
 ---
 layout: default
+sitemap: false
 permalink: /random/
 published: true
+title: Random
 ---
-
-<script>
-    function linkToRandomBlogPost() {
-        let allPosts = [{%- for post in site.posts -%}
-            "{{ post.url | relative_url }}",
-        {%- endfor -%}];
-        let post = allPosts[Math.floor(Math.random() * allPosts.length)];
-        let postLink = post ? `${post}` : `{{ '/' | relative_url }}`;
-        return postLink;
-    }
-    location.replace(linkToRandomBlogPost())
-</script>
+# {{page.title}}
+## Get a random post
+<script src="{% link assets/js/random-post.js %}"></script>
+<script>location.replace(linkToRandomBlogPost())</script>
 <noscript>Javascript is required to get a random Post</noscript>
