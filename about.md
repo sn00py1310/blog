@@ -54,9 +54,10 @@ configs:
 }
 {%- endif -%}
 </style>
+{% assign gh_social = site.minima.social_links | where: 'platform', 'github' | first | %}
 <div class="profile-picture" title="This animation took me 4 hours">
-    <a href="https://github.com/{{ site.minima.social_links.github}}" target="_blank">
-        <img src="https://github.com/{{ site.minima.social_links.github }}.png" alt="Profile picture of {{ site.minima.social_links.github }}" title="Profile picture of {{ site.minima.social_links.github }}">
+    <a href="{{gh_social.user_url}}" target="_blank">
+        <img src="{{gh_social.user_url}}.png" alt="Profile picture of me" title="Profile picture of me">
     </a>
 </div>
 <!-- End custom profile picture -->
