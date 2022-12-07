@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <meta charset="utf-8">
+  <title>{%- if include.title -%}{{include.title}}{%- else -%}Redirecting&hellip;{%- endif -%}</title>
+  <link rel="canonical" href="{%- if include.canonical -%}{{include.canonical}}{%- else -%}{{ include.redirect }}{%- endif -%}">
+  <script>location="{{ include.redirect }}"</script>
+  <meta http-equiv="refresh" content="0; url={{ include.redirect }}">
+  <meta name="robots" content="noindex">
+  <h1>{%- if include.title -%}{{include.title}}{%- else -%}Redirecting&hellip;{%- endif -%}</h1>
+  <a href="{{ include.redirect }}">{%- if include.message -%}{{include.message}}{%- else -%}Click here if you are not redirected.{%- endif -%}</a>
+</html>
