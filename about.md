@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /about/
+permalink: /about
 configs:
     rotating_pb: true
 ---
@@ -54,7 +54,7 @@ configs:
 }
 {%- endif -%}
 </style>
-{% assign gh_social = site.minima.social_links | where: 'platform', 'github' | first | %}
+{% assign gh_social = site.minima.social_links | where: 'platform', 'github' | first %}
 <div class="profile-picture" title="This animation took me 4 hours">
     <a href="{{gh_social.user_url}}" target="_blank">
         <img src="{{gh_social.user_url}}.png" alt="Profile picture of me" title="Profile picture of me">

@@ -1,7 +1,7 @@
 ---
+author: sn00py1310
 title: VeraCrypt - How to block the Windows format drive popup
 tag: veracrypt
-published: true
 ---
 
 ## The story
