@@ -6,7 +6,11 @@ author:
   name: sn00py1310
 
 collections_dir: collections
-permalink: /:collection/:year/:month/:day/:title
+collections:
+  posts:
+    layout: post
+    permalink: /:collection/:year/:month/:day/:title  
+    output: true
 
 header_pages:
   - about.md
