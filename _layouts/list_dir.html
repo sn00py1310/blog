@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+{% capture defaultTitle %}Index of <a href="{{page.url}}">{{page.url}}</a>{% endcapture %}
+<header class="post-header">
+    <h1 class="post-title">{{ page.title | default: defaultTitle }}</h1>
+</header>
+
+
+{%- assign pathLength = page.url | size -%}
+{%- assign toLoop = site.pages -%}
+<ul>
+{%- for loopPage in toLoop -%}
+    {%- assign partialUrl = loopPage.url | slice: 0, pathLength -%}
+    
+        {%- if partialUrl == page.url and loopPage.url != page.url -%}
+        {%- assign urlArr = loopPage.url | split: "." -%}
+
+        {%- if urlArr.last == "html" -%}
+            {%- assign tmp1 = 5 -%}
+            {%- assign tmp2 = urlArr | join: "." | size | minus: tmp1 -%}
+            {%- assign url = loopPage.url | slice: 0, tmp2 -%}
+        {%- else -%}
+            {%- assign url = loopPage.url -%}
+        {%- endif -%}
+
+    {%- assign urlLength = loopPage.url | size -%}
+    {%- assign lastUrl = loopPage.url | slice: pathLength, urlLength -%}
+
+    {%- assign urlMap = lastUrl | split: "/" -%}
+
+    {%- unless urlMap.size > 1 -%}
+<li><a href="{{url}}">{{loopPage.title | default: url}}</a></li>
+    {%- endunless -%}       
+    {%- endif -%}
+{%- endfor -%}
+</ul>
