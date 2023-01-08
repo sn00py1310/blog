@@ -17,3 +17,4 @@
 <!-- End libs -->
 {%- if site.favicon -%}<link rel="icon" href="{{ site.favicon | relative_url }}">{%- endif -%}
 <script src="{% link /assets/js/main.js %}"></script>
+{%- if page.robots -%}<meta name="robots" content="{{page.robots}}">{%- endif -%}

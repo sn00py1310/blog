@@ -3,6 +3,7 @@ layout: default
 title: Random Post
 sitemap: false
 permalink: /posts/random
+robots: "noindex"
 ---
 # {{page.title}}
 <script src="{% link assets/js/posts_random.js %}"></script>
