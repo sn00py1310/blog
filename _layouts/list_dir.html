@@ -28,7 +28,7 @@ layout: default
         {%- assign lastUrl = loopPage.url | slice: pathLength, urlLength -%}
 
         {%- assign urlMap = lastUrl | split: "/" -%}
-        {%- unless urlMap.size > 1 -%}
+        {%- unless urlMap.size > 2 -%}
             <li><a href="{{url}}">{{loopPage.title | default: url}}</a></li>
         {%- endunless -%}       
     {%- endif -%}
