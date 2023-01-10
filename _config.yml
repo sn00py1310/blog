@@ -12,6 +12,12 @@ collections:
     permalink: /:collection/:year/:month/:day/:title  
     output: true
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://github.com/sn00py1310.png
+
 header_pages:
   - about.md
   - index.md
