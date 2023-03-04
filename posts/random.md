@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 title: Random Post
 sitemap: false
 permalink: /posts/random
