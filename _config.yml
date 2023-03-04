@@ -23,7 +23,10 @@ header_pages:
   - index.md
 
 # Statistics
-google_analytics: G-KKWDB68V2E
+# google_analytics: G-KKWDB68V2E
+plausible:
+  src: https://plausible.snoopys.xyz/js/script.outbound-links.js
+  domain: blog.snoopys.xyz
 
 # Update version only after testing/reviewing
 remote_theme: jekyll/minima
