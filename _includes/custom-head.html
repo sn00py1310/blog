@@ -1,5 +1,4 @@
 <!-- Begin libs -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {%- if page.usemathjax -%}
     {%- if page.usemathjax.configs -%}
         {{page.usemathjax.configs}}
@@ -12,7 +11,7 @@
             };
         </script>
     {%- endif -%}
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {%- endif -%}
 <!-- End libs -->
 {%- if site.favicon -%}<link rel="icon" href="{{ site.favicon | relative_url }}">{%- endif -%}
