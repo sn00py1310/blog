@@ -1,0 +1,55 @@
+baseurl = "https://blog.snoopys.xyz"
+title = "sn00py1310's Blog"
+theme = "hugo-coder"
+languagecode = "en"
+defaultcontentlanguage = "en"
+defaultContentLanguageInSubdir = true
+
+paginate = 20
+contentDir = "content"
+enableInlineShortcodes = true
+enableRobotsTXT = true
+
+
+[markup.highlight]
+style = "github-dark"
+
+[params]
+  author = "sn00py1310"
+  info = "Some weird dev"
+  description = "sn00py1310's Blog"
+  keywords = "blog,developer,personal"
+  avatarurl = "https://github.com/sn00py1310.png"
+
+  enableTwemoji = true
+  colorScheme = "dark"
+  hidecolorschemetoggle = false
+
+[taxonomies]
+series = "series"
+tag = "tags"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/sn00py1310/"
+
+# Menu links
+[[menu.main]]
+  name = "Posts"
+  weight = 1
+  url  = "posts/"
+[[menu.main]]
+  name = "About"
+  weight = 2
+  url = "about/"
+
+[params.plausibleAnalytics]
+    domain = "blog.snoopys.xyz"
+    serverURL = "plausible.snoopys.xyz"
+    outboundLinksTracking = true
+
+[permalinks]
+    posts = "/posts/:slug"

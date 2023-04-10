@@ -1,10 +1,4 @@
-# General
-.*
-*.lock
-!.gitignore
-
-# Jekyll
-_site/
-
-# Bundler/Composer
-vendor/
+themes/hugo-coder/
+hugo.exe
+.hugo_build.lock
+public/

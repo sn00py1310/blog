@@ -1,0 +1,67 @@
+
+
+<!-- Begin custom profile picture -->
+<style>
+    .avatar {
+        --size: 22em;
+        --border-size: 0.75rem;
+    
+        overflow: hidden;
+        position: relative;
+    
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+    
+        margin: 0 auto 1em auto;
+    }
+
+    @media only screen and (max-width:768px) {
+        .avatar  {
+            --size: 12rem;
+            --border-size: 0.5rem;
+        }
+    }
+
+    .avatar img {
+        position: absolute;
+        top: calc(var(--border-size) / 2);
+        left: calc(var(--border-size) / 2);
+    
+        width: calc(var(--size) - var(--border-size));
+        height: calc(var(--size) - var(--border-size));
+        border-radius: 50%;
+    }
+    .avatar::after {
+        content: '';
+        display: block;
+        z-index: -1;
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+    
+        width: var(--size);
+        height: var(--size);
+    
+        background-image: conic-gradient(rgba(255,1,1,1), rgba(255,0,215,1), rgba(0,3,255,1), rgba(255,1,1,1));
+        animation: rotate-avatar linear 3s infinite;
+    }
+    @keyframes rotate-avatar {
+      to { transform: rotate(360deg) }
+    }
+    @media (prefers-reduced-motion) {
+        .avatar::after {
+            animation: none;
+        }
+    }
+</style>
+
+
+{{ if and (isset .Site.Params "avatarurl") (not (isset .Site.Params "gravatar")) }}
+  {{ with .Site.Params.avatarURL }}
+    <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+  {{ end }}
+{{ end }}
+{{ with .Site.Params.gravatar }}
+  <div class="avatar"><img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" alt="gravatar"></div>
+{{ end }}

@@ -1,0 +1,5 @@
+{{ .Content }}
+
+{{ range ( where .Site.RegularPages "Type" "posts" | first 2 ) }}
+<h3>{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }} - <a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a></h3>
+{{end}}

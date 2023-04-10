@@ -1,8 +1,15 @@
----
-author: sn00py1310
-title: VeraCrypt - How to block the Windows format drive popup
-tag: veracrypt
----
++++ 
+draft = false
+date = 2022-11-30
+title = "VeraCrypt - How to block the Windows format drive popup"
+description = "Very nice description"
+slug = "veracrypt-windows-drive-popup-891660a2d9fe"
+aliases = ["/posts/2022/11/30/veracrypt"]
+authors = ["sn00py1310"]
+tags = ["veracrypt"]
+categories = []
+series = []
++++
 
 ## The story
 VeraCrypt is a good software, but it there is one downside. If you have an encrypted partition you get a annoying popup on Windows: "Format the Disk before You Can Use It". This was getting really annoying to me so I spend a lot of time reading through [Google](https://www.google.com/search?q=veracrypt+Format+the+Disk+before+You+Can+Use+It) and finding a loot of partial solutions. All of them where only for the current PC, but I want something which worked on every PC and now we are here.
