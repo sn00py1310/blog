@@ -1,7 +1,7 @@
 +++ 
 draft = false
 date = 2023-08-18T04:30:00+02:00
-title = "Microsoft spoofs emails because of wrong SPF records for Hotmail.com."
+title = "Microsoft spoofs emails because of wrong SPF records for Hotmail.com"
 description = "Hotmail can't send emails because of a misconfiguration from Microsoft."
 slug = "microsoft-spf-error-b9e4d4ebc2db"
 authors = ["sn00py1310"]

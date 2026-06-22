@@ -2,7 +2,7 @@
 draft = false
 date = 2026-06-21T20:00:00+02:00
 title = "Writeup Simple Food Notifications"
-description = "A writeup for the Simple Food Notifications challenge of the GPNCTF24"
+description = "A writeup for the Simple Food Notifications challenge of the GPNCTF24."
 slug = "writeup-simple-food-notifications-ef21cc083e00"
 authors = ["sn00py1310"]
 tags = ["ctf", "writeup", "gpnctf"]

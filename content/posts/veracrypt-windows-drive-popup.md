@@ -2,7 +2,7 @@
 draft = false
 date = 2022-11-30
 title = "VeraCrypt - How to block the Windows format drive popup"
-description = "Very nice description"
+description = "How to block the Windows format drive popup for VeraCrypt encrypted partitions."
 slug = "veracrypt-windows-drive-popup-891660a2d9fe"
 aliases = ["/posts/2022/11/30/veracrypt"]
 authors = ["sn00py1310"]
