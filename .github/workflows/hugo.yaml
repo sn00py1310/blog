@@ -60,6 +60,12 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
+        
+        # Copies the 404.html because of defaultContentLanguageInSubdir: true
+        # See https://github.com/gohugoio/hugo/issues/5161
+        # See https://cyrusyip.org/en/post/2023/11/06/hugo-top-level-404/
+      - name: Copy 404 page to root
+        run: "cp -n ./public/en/404.html ./public"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

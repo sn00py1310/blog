@@ -2,6 +2,9 @@
 <html lang="en-us">
   <head>
     {{ partial "analytics/all.html" . }}
+    {{ if and .Site.Params.plausibleAnalytics .Site.Params.plausibleAnalytics.domain }}
+    <script>plausible("alias",{props:{path:document.location.pathname, target:"{{ .Permalink }}"}});</script>
+    {{ end }}
     <title>{{ .Permalink }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
     <meta name="robots" content="noindex">

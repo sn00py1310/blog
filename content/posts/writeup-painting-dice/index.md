@@ -4,6 +4,7 @@ date = 2025-06-22T00:00:00+02:00
 title = "Writeup Painting Dice"
 description = "A writeup for the Painting Dice challenge of the GPNCTF23."
 slug = "writeup-painting-dice-098527d17a3c"
+aliases = ["/posts/writeup-painting-dice-098527d17a3c/"]
 authors = ["sn00py1310"]
 tags = ["ctf", "writeup", "gpnctf"]
 categories = []

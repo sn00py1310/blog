@@ -4,6 +4,7 @@ date = 2023-08-18T04:30:00+02:00
 title = "Microsoft spoofs emails because of wrong SPF records for Hotmail.com"
 description = "Hotmail can't send emails because of a misconfiguration from Microsoft."
 slug = "microsoft-spf-error-b9e4d4ebc2db"
+aliases = ["/posts/microsoft-spf-error-b9e4d4ebc2db/"]
 authors = ["sn00py1310"]
 tags = ["microsoft", "email"]
 categories = []
@@ -77,7 +78,7 @@ Dieser Fehler steht im Zusammenhang mit dem SPF (Sender Policy Framework). Die A
 
 
 slmailin003.protonmail.ch hat diesen Fehler ausgegeben:
-<[REDACTED]@slmails.com>: Recipient address rejected: Message rejected due to: SPF fail - not authorized. Please see http://www.openspf.net/Why?s=mfrom;id=[REDACTED]@hotmail.com;ip=40.92.58.60;r=<UNKNOWN>
+&lt;[REDACTED]@slmails.com&gt;: Recipient address rejected: Message rejected due to: SPF fail - not authorized. Please see http://www.openspf.net/Why?s=mfrom;id=[REDACTED]@hotmail.com;ip=40.92.58.60;r=&lt;UNKNOWN&gt;
 
 ### SPF Records
 All the records have been looked up through [SPF-Record.de](https://www.spf-record.de/spf-lookup) around 22:35 UTC if not noted otherwise.
